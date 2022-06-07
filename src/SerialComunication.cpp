@@ -3,7 +3,6 @@
 
 #define SEPARATOR ','
 
-
 void SerialComunication::parseMsg(int len) {
     char msgType = buff[0];
     float data[16];
@@ -40,11 +39,3 @@ void SerialComunication::updateBuffer(char c) {
         currentPos = 0;
     }
 }
-
-// int main() {
-//     printf("%f\n", strToPositiveFloat("15.78"));
-//     printf("%f\n", strToFloat("-5.23"));
-//     char str[20] = "38.1";
-//     printf("%f\n", strToFloat(str));
-//     printf("%f\n", strToFloat(str+1));
-// }

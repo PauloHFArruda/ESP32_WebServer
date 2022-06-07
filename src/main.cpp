@@ -131,7 +131,7 @@ void initWebSocket()
 void setup()
 {
     Serial.begin(115200);
-    Serial2.begin(9600, SERIAL_8N1, 16, 17);
+    Serial2.begin(115200, SERIAL_8N1, 16, 17);
     arduino.begin(handleArduinoMsg);
 
     while (pidParams[0] == 0)
@@ -152,18 +152,18 @@ void setup()
     }
     Serial.println();
 
-    // initWebSocket();
+    initWebSocket();
 
-    // server.on("/", HTTP_GET, [](AsyncWebServerRequest *request){
-    //     request->send_P(200, "text/html", index_html);
-    // });
+    server.on("/", HTTP_GET, [](AsyncWebServerRequest *request){
+        request->send_P(200, "text/html", index_html);
+    });
 
-    // server.begin();
+    server.begin();
 }
 
 void loop()
 {
-    //ws.cleanupClients();
+    ws.cleanupClients();
     while (Serial2.available()) {
         arduino.updateBuffer(Serial2.read());
     }

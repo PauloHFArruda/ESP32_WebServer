@@ -1,6 +1,6 @@
 #include "utils.h"
 
-double sat(double val, double min, double max) {
+float sat(float val, float min, float max) {
     return val < min ? min : (val > max ? max : val);
 }
 
